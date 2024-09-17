@@ -1,8 +1,10 @@
 package meeju;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class ParserTest {
     private TaskList taskList = new TaskList(new StorageStub());
@@ -61,6 +63,7 @@ public class ParserTest {
         assertEquals("Empty Command!", result);
     }
 
+    // The following test was generated using ChatGPT
     @Test
     public void hiCommand() throws MeejuException {
         String instruction = "hi";
@@ -68,6 +71,7 @@ public class ParserTest {
         assertEquals("Meow! Hello There! How can i help you?", result);
     }
 
+    // The following test was generated using ChatGPT
     @Test
     public void parse_ListCommand() throws MeejuException {
         String instruction = "list";
@@ -77,6 +81,7 @@ public class ParserTest {
     }
 
 
+    // The following test was generated using ChatGPT
     @Test
     public void parse_FindCommand() throws MeejuException {
         String instruction = "find groceries";
@@ -85,6 +90,7 @@ public class ParserTest {
         assertTrue(result.contains("Buy groceries"));
     }
 
+    // The following test was generated using ChatGPT
     @Test
     public void testParse_DeleteCommand() throws MeejuException {
         taskList.addTodoTask("Read a book");
@@ -96,6 +102,7 @@ public class ParserTest {
         assertEquals(expected, result);
     }
 
+    // The following test was generated using ChatGPT
     @Test
     public void parse_MarkCommand() throws MeejuException {
         taskList.addTodoTask("Read a book");
@@ -106,10 +113,11 @@ public class ParserTest {
         assertEquals(expected, result);
     }
 
+    // The following test was generated using ChatGPT
     @Test
     public void parse_UnmarkCommand() throws MeejuException {
         taskList.addTodoTask("Read a book");
-        parser.parse(taskList, "mark 1");  // Mark task as done first
+        parser.parse(taskList, "mark 1");
         String instruction = "unmark 1";
         String result = parser.parse(taskList, instruction);
         String expected = "Meow! I've marked this task as not done yet:\n"
